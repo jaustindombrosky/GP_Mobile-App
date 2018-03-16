@@ -11,8 +11,7 @@
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
     crossorigin="anonymous">
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-    crossorigin="anonymous"></script>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
     crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
@@ -22,7 +21,6 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
     crossorigin="anonymous"></script>
 
-  <link rel="stylesheet" href ="gpbathroom.js">
 </head>
 
 <body>
@@ -53,35 +51,59 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
               aria-expanded="false">
-              Bathroom Choices 
+              Bathroom Choices
             </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-
-                <div class="form-group" data-toggle="buttons">
-                    <label class="btn btn-danger" id="searchButton">
-                        <input type="checkbox" autocomplete="off"> Gender Neutral
-                    </label>
-                </div>
-                <div class="form-group" data-toggle="buttons">
-                    <label class="btn btn-info" id="searchButton">
-                        <input type="checkbox" autocomplete="off"> Family
-                    </label>
-                </div>
-                <div class="form-group" data-toggle="buttons">
-                    <label class="btn btn-warning" id="searchButton">
-                        <input type="checkbox" autocomplete="off"> Single Stall 
-                    </label>
-
-                </div>
-                <div class="form-group" data-toggle="buttons">
+            <div class="dropdown">
+              
+            
+              <ul class="dropdown-menu dropdown-menu-form" role="menu">
+                  <li>
+                      <label class="checkbox">
+                          <input type="checkbox">
+                          Gender-Neutral
+                      </label>
+                  </li>
+                  <li>
+                      <label class="checkbox">
+                          <input type="checkbox">
+                          Family 
+                      </label>
+                  </li>
+                             <li>
+                      <label class="checkbox">
+                          <input type="checkbox">
+                          Changing Table 
+                      </label>
+                  </li>        <li>
+                      <label class="checkbox">
+                          <input type="checkbox">
+                          Single Stall 
+                      </label>
+                  </li>        <li>
+                      <label class="checkbox">
+                          <input type="checkbox">
+                          Men's
+                      </label>
+                  </li>
+                  <li>
+                      <label class="checkbox">
+                          <input type="checkbox">
+                          Women's
+                      </label>
+                  </li>
+                  <li> 
                     <button type="button" class="btn btn-success">Submit</button>
-                </div>
+                </li>
+              </ul>
+           </div>
+
+          
               <!-- <a class="dropdown-item" href="#">Gender-neutral</a>
               
               <a class="dropdown-item" href="#">Family (Changing table)</a>
-              <a class="dropdown-item" href="#">Single Stall </a> --> 
+              <a class="dropdown-item" href="#">Single Stall </a> -->
 
-              <!-- Have a submit button for the parameters you check on --> 
+              <!-- Have a submit button for the parameters you check on -->
             </div>
           </li>
         </ul>
@@ -94,16 +116,21 @@
   </nav>
 
 
-<!-- EMERGENCY have to use bathroom, find me the closest bathroom!!!!-->
-<!-- this is the html for the emergency button. When the button is clicked,
+  <!-- EMERGENCY have to use bathroom, find me the closest bathroom!!!!-->
+  <!-- this is the html for the emergency button. When the button is clicked,
   google maps will GPS your location, and then GPS the closest bathroom to you,
   and then give GPS directions on how to get there
---> 
+-->
   <button type="button" class="btn btn-danger btn-lg btn-block">EMERGENCY</button>
 
 
 
-  <!-- Bootstrap JavaScript CDN -->
+  <!-- jQuery Link  -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+
+  <!-- JavaScript link -->
+  <link rel="stylesheet" href="gpbathroom.js">
 
 </body>
 
