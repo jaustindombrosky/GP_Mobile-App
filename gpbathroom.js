@@ -1,3 +1,15 @@
+//here is some txt 
+//here is some txt
+// Reference the JavaScript API from our CDN and you are ready to get started:
+<link rel="stylesheet" href="https://js.arcgis.com/4.6/esri/css/main.css"></link>
+<script src="https://js.arcgis.com/4.6/"></script>
+
+$(document).ready(function () {
+    var dropdown = ['Gender Neutral', 'Family', 'Single Stall'];
+}
+
+
+
 }
     "objectIdFieldName": "OBJECTID",
     "globalIdFieldName": "",
