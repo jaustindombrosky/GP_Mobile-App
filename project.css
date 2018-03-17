@@ -62,7 +62,7 @@
 
 /* this is an update for google maps -ad*/
 
-.map-body {
+#map-body {
   height: 400px;
   width: 100%;
 }

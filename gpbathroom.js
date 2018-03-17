@@ -1,19 +1,24 @@
-$(document).ready(function() {
-    var dropdown = ['Gender Neutral', 'Family', 'Single Stall'];
-  
+// iffy js call $(document).ready(function () {
+  console.log('working')
+  var dropdown = ['Gender Neutral', 'Family', 'Single Stall'];
+
   function initMap() {
+    console.log('loading map')
     //this is the location of the U//
-      var uofu = {lat: 40.7649, lng: 111.8421}
+    var uofu = { lat: 40.7649, lng: -111.8421 }
     var map = new google.maps.Map(document.getElementById('map-body'), {
-      zoom: 4,
-      center: uofu
+      center: uofu,
+      zoom: 7
     });
-    var marker = new google.maps.Marker({
-      position: uofu,
-      map: map
-    });
+    console.log('MAP DATA', map)
+    // var marker = new google.maps.Marker({
+    //   position: uofu,
+    //   map: map
+    // });
+    // console.log('marker', marker)
   }
-});
+  
+// });
 
 
 
@@ -1013,4 +1018,3 @@ $(document).ready(function() {
 //      }
 //     ]
 //    }
-   
