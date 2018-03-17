@@ -1,9 +1,6 @@
-<link rel="stylesheet" href="https://js.arcgis.com/4.6/esri/css/main.css"></link>
-<script src="https://js.arcgis.com/4.6/"></script>
-
 $(document).ready(function() {
     var dropdown = ['Gender Neutral', 'Family', 'Single Stall'];
-
+  
   function initMap() {
     //this is the location of the U//
       var uofu = {lat: 40.7649, lng: 111.8421}
@@ -17,6 +14,8 @@ $(document).ready(function() {
     });
   }
 });
+
+
 
 // }
 //     "objectIdFieldName": "OBJECTID",
