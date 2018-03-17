@@ -1,6 +1,13 @@
+
 // iffy js call $(document).ready(function () {
   console.log('working')
   var dropdown = ['Gender Neutral', 'Family', 'Single Stall'];
+
+
+
+$(document).ready(function() {
+    var dropdown = ['Gender Neutral', 'Family', 'Single Stall'];
+  
 
   function initMap() {
     console.log('loading map')
@@ -17,12 +24,35 @@
     // });
     // console.log('marker', marker)
   }
+
   
 // });
+=======
+});
+=======
+//here is some txt 
+//here is some txt
+// Reference the JavaScript API from our CDN and you are ready to get started:
+//<link rel="stylesheet" href="https://js.arcgis.com/4.6/esri/css/main.css"></link>
+//<script src="https://js.arcgis.com/4.6/"></script>
+
+$(document).ready(function () {
+    var dropdown = ['Gender Neutral', 'Family', 'Single Stall'];
+    $("#searchButton").preventDefault();
+    $("#navbarDropdownMenuLink").preventDefault();
+
+
+    $("#navbarDropdownMenuLink").on('click', function(e) {
+        if($(this).hasClass("form-group")) {
+            //e.stopPropagation();
+            e.preventDefault();
+        }
+    });
+});
 
 
 
-// }
+
 //     "objectIdFieldName": "OBJECTID",
 //     "globalIdFieldName": "",
 //     "geometryType": "esriGeometryPoint",
@@ -1017,4 +1047,9 @@
 //       }
 //      }
 //     ]
+
 //    }
+
+=======
+   
+
