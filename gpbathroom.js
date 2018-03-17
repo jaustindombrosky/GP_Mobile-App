@@ -5,8 +5,8 @@
 
 
 
-$(document).ready(function() {
-    var dropdown = ['Gender Neutral', 'Family', 'Single Stall'];
+// $(document).ready(function() {
+//     var dropdown = ['Gender Neutral', 'Family', 'Single Stall'];
   
 
   function initMap() {
@@ -27,20 +27,17 @@ $(document).ready(function() {
 
   
 // });
-=======
-});
-=======
+
+
+
 //here is some txt 
 //here is some txt
 // Reference the JavaScript API from our CDN and you are ready to get started:
 //<link rel="stylesheet" href="https://js.arcgis.com/4.6/esri/css/main.css"></link>
 //<script src="https://js.arcgis.com/4.6/"></script>
 
-$(document).ready(function () {
+$(document).ready(function (event) {
     var dropdown = ['Gender Neutral', 'Family', 'Single Stall'];
-    $("#searchButton").preventDefault();
-    $("#navbarDropdownMenuLink").preventDefault();
-
 
     $("#navbarDropdownMenuLink").on('click', function(e) {
         if($(this).hasClass("form-group")) {
@@ -1050,6 +1047,5 @@ $(document).ready(function () {
 
 //    }
 
-=======
    
 
