@@ -1,3 +1,21 @@
+
+$(document).ready(function() {
+    var dropdown = ['Gender Neutral', 'Family', 'Single Stall'];
+  
+  function initMap() {
+    //this is the location of the U//
+      var uofu = {lat: 40.7649, lng: 111.8421}
+    var map = new google.maps.Map(document.getElementById('map-body'), {
+      zoom: 4,
+      center: uofu
+    });
+    var marker = new google.maps.Marker({
+      position: uofu,
+      map: map
+    });
+  }
+});
+=======
 //here is some txt 
 //here is some txt
 // Reference the JavaScript API from our CDN and you are ready to get started:
@@ -9,6 +27,7 @@ $(document).ready(function () {
     $("#searchButton").preventDefault();
     $("#navbarDropdownMenuLink").preventDefault();
 
+
     $("#navbarDropdownMenuLink").on('click', function(e) {
         if($(this).hasClass("form-group")) {
             //e.stopPropagation();
@@ -18,8 +37,6 @@ $(document).ready(function () {
 });
 
 
-
-// }
 
 //     "objectIdFieldName": "OBJECTID",
 //     "globalIdFieldName": "",
@@ -1015,4 +1032,7 @@ $(document).ready(function () {
 //       }
 //      }
 //     ]
+
 //    }
+   
+
