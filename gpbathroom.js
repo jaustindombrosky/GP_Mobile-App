@@ -20,6 +20,19 @@
   
 // });
 
+$.ajax({
+  url: "https://fmags.fm.utah.edu/arcgis/rest/services/mapservices/restrooms/FeatureServer/0/query?where=1%3D1&objectIds=&time=&geometry=&geometryType=esriGeometryEnvelope&inSR=&spatialRel=esriSpatialRelIntersects&relationParam=&outFields=&returnGeometry=true&maxAllowableOffset=&geometryPrecision=&outSR=%7B%22wkid%22%3A+4326%7D&gdbVersion=&returnDistinctValues=false&returnIdsOnly=false&returnCountOnly=false&orderByFields=&groupByFieldsForStatistics=&outStatistics=&returnZ=false&returnM=false&multipatchOption=&f=pjson",
+  dataType: "json"
+ }).done(function(msg) {
+   for(var i = 0; i < msg["features"].length; i++) {
+     var geometry = msg["features"][i]["geometry"];
+     var attr = msg["features"][i]["attributes"];
+     
+     console.log(geometry);
+     console.log(attr["created_user"]);
+   }
+ });
+
 
 
 // }
