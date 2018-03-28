@@ -15,7 +15,7 @@
     var uofu = { lat: 40.7649, lng: -111.8421 }
     var map = new google.maps.Map(document.getElementById('map-body'), {
       center: uofu,
-      zoom: 7
+      zoom: 15,
     });
     console.log('MAP DATA', map)
     // var marker = new google.maps.Marker({

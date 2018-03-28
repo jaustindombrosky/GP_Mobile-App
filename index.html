@@ -108,9 +108,12 @@
       </div>
       <!-- Searchbar(type text) -->
     </nav>
-
+    <input type="text" placeholder="Search.."> 
+  </nav>
+  <!-- EMERGENCY BUTTON --> 
+  <button type="button" class="btn btn-danger btn-lg btn-block">EMERGENCY</button>
     
-  <div id="map-body"></div>
+ <div id="map-body"></div> 
   <!-- google maps api -->
 
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
@@ -133,14 +136,22 @@
 <link rel="stylesheet" href="https://js.arcgis.com/4.6/esri/css/main.css"></link>
 <script src="https://js.arcgis.com/4.6/"></script> -->
 <!--======= --> 
-    <input type="text" placeholder="Search.."> 
+    
 
 
     <!-- End Searchbar -->
-  </nav>
+ 
+<!-- ======= --> 
+
+  <!-- EMERGENCY have to use bathroom, find me the closest bathroom!!!!-->
+  <!-- this is the html for the emergency button. When the button is clicked,
+  google maps will GPS your location, and then GPS the closest bathroom to you,
+  and then give GPS directions on how to get there
+-->
+
 
 <!-- here is the div for the map API --> 
-<div id = "map">
+<div id = "map-body">
 
 
 
@@ -157,7 +168,7 @@
   google maps will GPS your location, and then GPS the closest bathroom to you,
   and then give GPS directions on how to get there
 -->
-  <button type="button" class="btn btn-danger btn-lg btn-block">EMERGENCY</button>
+  <!-- <button type="button" class="btn btn-danger btn-lg btn-block">EMERGENCY</button> --> 
 
 
 
