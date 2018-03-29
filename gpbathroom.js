@@ -34,6 +34,41 @@ $(document).ready(function (event) {
     });
 });
 
+//add user input
+$("#addUser").on("click", function(event) {
+  event.preventDefault();
+    var name = $("#nameInput").val().trim();
+    var email = $("#emailInput").val().trim();
+    var comment = $("#commentInput").val().trim();
+ 
+  $("#nameDisplay").text(name);
+  $("#emailDisplay").text(email);
+  $("#commentDisplay").text(comment);
+    sessionStorage.clear();
+    sessionStorage.setItem("name", name);
+    sessionStorage.setItem("email", email);
+    sessionStorage.setItem("comment", comment);
+});
+  $("#nameDisplay").text(sessionStorage.getItem("name"));
+  $("#emailDisplay").text(sessionStorage.getItem("email"));
+  $("#commentDisplay").text(sessionStorage.getItem("comment"));
+//add user input
+// 5 star rating
+function rate(rating) {
+  document.rating.stars.value = rating;
+  document.rating.submit();
+  return true;
+}
+
+function rate_images(rating) {
+  if(!(rating>=1 && rating<=5)) return;
+
+  for(var i=1;i<=rating;i++)
+      document.getElementById("rate_image_"+rating).src="lit.gif";
+}
+// 5 star rating
+
+
 
 
 
