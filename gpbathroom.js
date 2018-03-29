@@ -6,7 +6,7 @@ console.log('working')
     var uofu = { lat: 40.766829464704202, lng: -111.84779251030393, }
     var map = new google.maps.Map(document.getElementById('map-body'), {
       center: uofu,
-      zoom: 7
+      zoom: 15,
     });
     console.log('MAP DATA', map)
   }

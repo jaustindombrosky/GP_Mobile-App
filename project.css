@@ -1,6 +1,6 @@
 .navbar {
     overflow: hidden;
-    background-color: rgb(113, 131, 163);
+    background-color: #7183a3;
     font-family: Arial;
   }
   
@@ -63,7 +63,7 @@
 /* this is an update for google maps -ad*/
 
 #map-body {
-  height: 400px;
+  height: 800px;
   width: 100%;
 }
 
