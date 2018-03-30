@@ -1,17 +1,9 @@
 console.log('working')
 var dropdown = ['Gender Neutral', 'Family', 'Single Stall'];
 
-// function initMap() {
-//   console.log('loading map')
-//   var uofu = { lat: 40.766829464704202, lng: -111.84779251030393, }
-//   var map = new google.maps.Map(document.getElementById('map-body'), {
-//     center: uofu,
-//     zoom: 15,
-//   });
-//   console.log('MAP DATA', map)
-// }
 
 var map, infoWindow;
+
 function initMap() {
   map = new google.maps.Map(document.getElementById('map-body'), {
     center: { lat: 40.766829464704202, lng: -111.84779251030393, },
@@ -63,6 +55,7 @@ $(function () {
   });
 });
 
+
 $(document).ready(function (event) {
   var dropdown = ['Gender Neutral', 'Family', 'Single Stall'];
 
@@ -72,6 +65,9 @@ $(document).ready(function (event) {
     }
   });
 });
+
+//map call that will loop data points//
+
 
 //add user input
 $("#addUser").on("click", function (event) {
@@ -83,14 +79,26 @@ $("#addUser").on("click", function (event) {
   $("#nameDisplay").text(name);
   $("#emailDisplay").text(email);
   $("#commentDisplay").text(comment);
+
+    sessionStorage.clear();
+    sessionStorage.setItem("name", name);
+    sessionStorage.setItem("email", email);
+    sessionStorage.setItem("comment", comment);
+
+  $("#nameDisplay").text(sessionStorage.getItem("name"));
+  $("#emailDisplay").text(sessionStorage.getItem("email"));
+  $("#commentDisplay").text(sessionStorage.getItem("comment"));
+
   sessionStorage.clear();
   sessionStorage.setItem("name", name);
   sessionStorage.setItem("email", email);
   sessionStorage.setItem("comment", comment);
-});
+
 $("#nameDisplay").text(sessionStorage.getItem("name"));
 $("#emailDisplay").text(sessionStorage.getItem("email"));
 $("#commentDisplay").text(sessionStorage.getItem("comment"));
+});
+
 //add user input
 // 5 star rating
 function rate(rating) {
@@ -107,30 +115,7 @@ function rate_images(rating) {
 }
 // 5 star rating
 
-// // //This is the code to find your current location. 
-// var x = document.getElementById("demo");
-
-// function getLocation() {
-//   if (navigator.geolocation) {
-//     navigator.geolocation.getCurrentPosition(showPosition());
-//   } else {
-//     x.innerHTML = "Geolocation is not supported by this browser.";
-//   }
-// }
-
-// function showPosition(position) {
-//   x.innerHTML = "Latitude: " + position.coords.latitude +
-//     "<br>Longitude: " + position.coords.longitude;
-// console.log();
-// };
-// console.log("____________________");
-// getLocation();
-
-
-
-
-
-[{
+var bathroomData = [{
   "objectIdFieldName": "OBJECTID",
   "globalIdFieldName": "",
   "geometryType": "esriGeometryPoint",
@@ -140,6 +125,7 @@ function rate_images(rating) {
   },
   "fields": [
     {
+
       "name": "assigned_gender",
       "alias": "Assigned Gender",
       "type": "esriFieldTypeString",
@@ -1126,3 +1112,13 @@ function rate_images(rating) {
     }
   ]
 }]
+console.log(bathroomData)
+bathroomData.map(function(bathroom){
+  for(var i = 0; i < bathroom.features.length; i++){
+    console.log("X Coord", bathroom.features[i].geometry.x)
+    console.log("Y Coord", bathroom.features[i].geometry.y)
+
+  }
+
+  //google map api pin
+});
