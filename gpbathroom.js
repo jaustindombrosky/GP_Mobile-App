@@ -1,6 +1,32 @@
 console.log('working')
 var dropdown = ['Gender Neutral', 'Family', 'Single Stall'];
 
+
+  function initMap() {
+    //console.log('loading map')
+    var uofu = { lat: 40.766829464704202, lng: -111.84779251030393, }
+    var map = new google.maps.Map(document.getElementById('map-body'), {
+      center: uofu,
+      zoom: 15,
+    });
+    //console.log('MAP DATA', map)
+  }
+
+$(function(){
+$.ajax({
+  url: "https://fmags.fm.utah.edu/arcgis/rest/services/mapservices/restrooms/FeatureServer/0/query?where=1%3D1&objectIds=&time=&geometry=&geometryType=esriGeometryEnvelope&inSR=&spatialRel=esriSpatialRelIntersects&relationParam=&outFields=&returnGeometry=true&maxAllowableOffset=&geometryPrecision=&outSR=%7B%22wkid%22%3A+4326%7D&gdbVersion=&returnDistinctValues=false&returnIdsOnly=false&returnCountOnly=false&orderByFields=&groupByFieldsForStatistics=&outStatistics=&returnZ=false&returnM=false&multipatchOption=&f=pjson",
+  dataType: "json"
+ }).done(function(msg) {
+   for(var i = 0; i < msg["features"].length; i++) {
+     var geometry = msg["features"][i]["geometry"];
+     var attr = msg["features"][i]["attributes"];
+     
+     console.log(geometry);
+     console.log(attr["created_user"]);
+   }
+  });
+ });
+=======
 function initMap() {
   console.log('loading map')
   var uofu = { lat: 40.766829464704202, lng: -111.84779251030393, }
@@ -26,6 +52,7 @@ $(function () {
   });
 });
 
+
 $(document).ready(function (event) {
   var dropdown = ['Gender Neutral', 'Family', 'Single Stall'];
 
@@ -35,6 +62,13 @@ $(document).ready(function (event) {
     }
   });
 });
+
+//map call that will loop data points//
+features.map(function(bathroom, index){
+  var blong = bathroom.x;
+  var blat = bathroom.y;
+  return bathroom
+},
 
 //add user input
 $("#addUser").on("click", function (event) {
@@ -46,6 +80,16 @@ $("#addUser").on("click", function (event) {
   $("#nameDisplay").text(name);
   $("#emailDisplay").text(email);
   $("#commentDisplay").text(comment);
+
+    sessionStorage.clear();
+    sessionStorage.setItem("name", name);
+    sessionStorage.setItem("email", email);
+    sessionStorage.setItem("comment", comment);
+}));
+  $("#nameDisplay").text(sessionStorage.getItem("name"));
+  $("#emailDisplay").text(sessionStorage.getItem("email"));
+  $("#commentDisplay").text(sessionStorage.getItem("comment"));
+
   sessionStorage.clear();
   sessionStorage.setItem("name", name);
   sessionStorage.setItem("email", email);
@@ -54,6 +98,7 @@ $("#addUser").on("click", function (event) {
 $("#nameDisplay").text(sessionStorage.getItem("name"));
 $("#emailDisplay").text(sessionStorage.getItem("email"));
 $("#commentDisplay").text(sessionStorage.getItem("comment"));
+
 //add user input
 // 5 star rating
 function rate(rating) {
@@ -70,6 +115,17 @@ function rate_images(rating) {
 }
 // 5 star rating
 
+
+    [{"objectIdFieldName": "OBJECTID",
+    "globalIdFieldName": "",
+    "geometryType": "esriGeometryPoint",
+    "spatialReference": {
+     "wkid": 102100,
+     "latestWkid": 3857
+    },
+    "fields": [
+     {
+=======
 // //This is the code to find your current location. 
 var x = document.getElementById("demo");
 
@@ -103,6 +159,7 @@ getLocation();
   },
   "fields": [
     {
+
       "name": "assigned_gender",
       "alias": "Assigned Gender",
       "type": "esriFieldTypeString",
