@@ -2,39 +2,42 @@ console.log('working')
 var dropdown = ['Gender Neutral', 'Family', 'Single Stall'];
 
 
-  function initMap() {
-    //console.log('loading map')
-    var uofu = { lat: 40.766829464704202, lng: -111.84779251030393, }
-    var map = new google.maps.Map(document.getElementById('map-body'), {
-      center: uofu,
-      zoom: 15,
-    });
-    //console.log('MAP DATA', map)
-  }
-
-$(function(){
-$.ajax({
-  url: "https://fmags.fm.utah.edu/arcgis/rest/services/mapservices/restrooms/FeatureServer/0/query?where=1%3D1&objectIds=&time=&geometry=&geometryType=esriGeometryEnvelope&inSR=&spatialRel=esriSpatialRelIntersects&relationParam=&outFields=&returnGeometry=true&maxAllowableOffset=&geometryPrecision=&outSR=%7B%22wkid%22%3A+4326%7D&gdbVersion=&returnDistinctValues=false&returnIdsOnly=false&returnCountOnly=false&orderByFields=&groupByFieldsForStatistics=&outStatistics=&returnZ=false&returnM=false&multipatchOption=&f=pjson",
-  dataType: "json"
- }).done(function(msg) {
-   for(var i = 0; i < msg["features"].length; i++) {
-     var geometry = msg["features"][i]["geometry"];
-     var attr = msg["features"][i]["attributes"];
-     
-     console.log(geometry);
-     console.log(attr["created_user"]);
-   }
-  });
- });
+var map, infoWindow;
 
 function initMap() {
-  console.log('loading map')
-  var uofu = { lat: 40.766829464704202, lng: -111.84779251030393, }
-  var map = new google.maps.Map(document.getElementById('map-body'), {
-    center: uofu,
-    zoom: 15,
+  map = new google.maps.Map(document.getElementById('map-body'), {
+    center: { lat: 40.766829464704202, lng: -111.84779251030393, },
+    zoom: 15
   });
-  console.log('MAP DATA', map)
+  infoWindow = new google.maps.InfoWindow;
+
+  // Try HTML5 geolocation.
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function (position) {
+      var pos = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+      };
+
+      infoWindow.setPosition(pos);
+      infoWindow.setContent('Location found.');
+      infoWindow.open(map);
+      map.setCenter(pos);
+    }, function () {
+      handleLocationError(true, infoWindow, map.getCenter());
+    });
+  } else {
+    // Browser doesn't support Geolocation
+    handleLocationError(false, infoWindow, map.getCenter());
+  }
+}
+
+function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+  infoWindow.setPosition(pos);
+  infoWindow.setContent(browserHasGeolocation ?
+    'Error: The Geolocation service failed.' :
+    'Error: Your browser doesn\'t support geolocation.');
+  infoWindow.open(map);
 }
 
 $(function () {
@@ -111,33 +114,7 @@ function rate_images(rating) {
     document.getElementById("rate_image_" + rating).src = "lit.gif";
 }
 // 5 star rating
-var x = document.getElementById("demo");
 
-function getLocation() {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(showPosition());
-  } else {
-    x.innerHTML = "Geolocation is not supported by this browser.";
-  }
-}
-
-// function showPosition(position) {
-//   x.innerHTML = "Latitude: " + position.coords.latitude +
-//     "<br>Longitude: " + position.coords.longitude;
-// console.log();
-// };
-// console.log("____________________");
-// getLocation();
-
-//     [{"objectIdFieldName": "OBJECTID",
-//     "globalIdFieldName": "",
-//     "geometryType": "esriGeometryPoint",
-//     "spatialReference": {
-//      "wkid": 102100,
-//      "latestWkid": 3857
-//     },
-//     "fields": [
-//      {
 var bathroomData = [{
   "objectIdFieldName": "OBJECTID",
   "globalIdFieldName": "",
