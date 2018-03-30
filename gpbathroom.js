@@ -26,7 +26,7 @@ $.ajax({
    }
   });
  });
-=======
+
 function initMap() {
   console.log('loading map')
   var uofu = { lat: 40.766829464704202, lng: -111.84779251030393, }
@@ -64,11 +64,7 @@ $(document).ready(function (event) {
 });
 
 //map call that will loop data points//
-features.map(function(bathroom, index){
-  var blong = bathroom.x;
-  var blat = bathroom.y;
-  return bathroom
-},
+
 
 //add user input
 $("#addUser").on("click", function (event) {
@@ -85,7 +81,7 @@ $("#addUser").on("click", function (event) {
     sessionStorage.setItem("name", name);
     sessionStorage.setItem("email", email);
     sessionStorage.setItem("comment", comment);
-}));
+
   $("#nameDisplay").text(sessionStorage.getItem("name"));
   $("#emailDisplay").text(sessionStorage.getItem("email"));
   $("#commentDisplay").text(sessionStorage.getItem("comment"));
@@ -94,10 +90,11 @@ $("#addUser").on("click", function (event) {
   sessionStorage.setItem("name", name);
   sessionStorage.setItem("email", email);
   sessionStorage.setItem("comment", comment);
-});
+
 $("#nameDisplay").text(sessionStorage.getItem("name"));
 $("#emailDisplay").text(sessionStorage.getItem("email"));
 $("#commentDisplay").text(sessionStorage.getItem("comment"));
+});
 
 //add user input
 // 5 star rating
@@ -114,19 +111,6 @@ function rate_images(rating) {
     document.getElementById("rate_image_" + rating).src = "lit.gif";
 }
 // 5 star rating
-
-
-    [{"objectIdFieldName": "OBJECTID",
-    "globalIdFieldName": "",
-    "geometryType": "esriGeometryPoint",
-    "spatialReference": {
-     "wkid": 102100,
-     "latestWkid": 3857
-    },
-    "fields": [
-     {
-=======
-// //This is the code to find your current location. 
 var x = document.getElementById("demo");
 
 function getLocation() {
@@ -137,19 +121,24 @@ function getLocation() {
   }
 }
 
-function showPosition(position) {
-  x.innerHTML = "Latitude: " + position.coords.latitude +
-    "<br>Longitude: " + position.coords.longitude;
-console.log();
-};
-console.log("____________________");
-getLocation();
+// function showPosition(position) {
+//   x.innerHTML = "Latitude: " + position.coords.latitude +
+//     "<br>Longitude: " + position.coords.longitude;
+// console.log();
+// };
+// console.log("____________________");
+// getLocation();
 
-
-
-
-
-[{
+//     [{"objectIdFieldName": "OBJECTID",
+//     "globalIdFieldName": "",
+//     "geometryType": "esriGeometryPoint",
+//     "spatialReference": {
+//      "wkid": 102100,
+//      "latestWkid": 3857
+//     },
+//     "fields": [
+//      {
+var bathroomData = [{
   "objectIdFieldName": "OBJECTID",
   "globalIdFieldName": "",
   "geometryType": "esriGeometryPoint",
@@ -1146,3 +1135,13 @@ getLocation();
     }
   ]
 }]
+console.log(bathroomData)
+bathroomData.map(function(bathroom){
+  for(var i = 0; i < bathroom.features.length; i++){
+    console.log("X Coord", bathroom.features[i].geometry.x)
+    console.log("Y Coord", bathroom.features[i].geometry.y)
+
+  }
+
+  //google map api pin
+});
