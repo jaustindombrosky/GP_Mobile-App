@@ -101,6 +101,8 @@ $("#commentDisplay").text(sessionStorage.getItem("comment"));
 
 //add user input
 // 5 star rating
+
+
 function rate(rating) {
   document.rating.stars.value = rating;
   document.rating.submit();
@@ -114,6 +116,7 @@ function rate_images(rating) {
     document.getElementById("rate_image_" + rating).src = "lit.gif";
 }
 // 5 star rating
+
 
 var bathroomData = [{
   "objectIdFieldName": "OBJECTID",
@@ -1112,13 +1115,21 @@ var bathroomData = [{
     }
   ]
 }]
-console.log(bathroomData)
+//console.log(bathroomData)
 bathroomData.map(function(bathroom){
+  var latitude = bathroom.features[i].geometry.x
+  var latitude = bathroom.features[i].geometry.y
   for(var i = 0; i < bathroom.features.length; i++){
-    console.log("X Coord", bathroom.features[i].geometry.x)
-    console.log("Y Coord", bathroom.features[i].geometry.y)
+    marker = new google.maps.Marker({
+      position: new google.maps.LatLng(latitude[i][1], longitude[i][2]),
+      map: map
+    });
+  };
+});
+    
+    
 
-  }
+    //console.log("X Coord", bathroom.features[i].geometry.x)
+    //console.log("Y Coord", bathroom.features[i].geometry.y)
 
   //google map api pin
-});
