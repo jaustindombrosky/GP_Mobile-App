@@ -125,6 +125,7 @@ function initMap() {
     $("#commentDisplay").text(sessionStorage.getItem("comment"));
   });
 
+
   //add user input
   // 5 star rating
   function rate(rating) {
@@ -133,6 +134,7 @@ function initMap() {
     return true;
   }
 
+
   function rate_images(rating) {
     if (!(rating >= 1 && rating <= 5)) return;
 
@@ -140,6 +142,7 @@ function initMap() {
       document.getElementById("rate_image_" + rating).src = "lit.gif";
   }
   // 5 star rating
+
 
 
 
@@ -1149,3 +1152,4 @@ function initMap() {
   //   }
   // });
 };
+
