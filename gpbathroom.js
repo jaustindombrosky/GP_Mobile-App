@@ -1,6 +1,7 @@
 var dropdown = ['Gender Neutral', 'Family', 'Single Stall'];
 
 var map, infoWindow;
+
 var bathroomData = {
   
     "objectIdFieldName": "OBJECTID",
@@ -1032,7 +1033,18 @@ bathroomData.features.map(function(bathroom){
     map: map,
     title: 'Bathroom'
   });
+
   }
+  // console.log(bathroomData)
+  // bathroomData.map(function (bathroom) {
+  //   for (var i = 0; i < bathroom.features.length; i++) {
+  //     console.log("X Coord", bathroom.features[i].geometry.x)
+  //     console.log("Y Coord", bathroom.features[i].geometry.y)
+  //     console.log("_______")
+  //   }
+  // });
+};
+
 
 });
 
@@ -1153,3 +1165,4 @@ function rate_images(rating) {
     //console.log("Y Coord", bathroom.features[i].geometry.y)
 
   //google map api pin
+
