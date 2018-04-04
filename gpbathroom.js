@@ -1005,6 +1005,25 @@ function initMap() {
     center: { lat: 40.766829464704202, lng: -111.84779251030393, },
     zoom: 15
   });
+  infoWindow = new google.maps.InfoWindow;
+  // Try HTML5 geolocation.
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function (position) {
+      var pos = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+      };
+      infoWindow.setPosition(pos);
+      infoWindow.setContent('You Are Here.');
+      infoWindow.open(map);
+      map.setCenter(pos);
+    }, function () {
+      handleLocationError(true, infoWindow, map.getCenter());
+    });
+  } else {
+    // Browser doesn't support Geolocation
+    handleLocationError(false, infoWindow, map.getCenter());
+  }
   var image = {
     url: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
     // This marker is 20 pixels wide by 32 pixels high.
@@ -1043,10 +1062,10 @@ bathroomData.features.map(function(bathroom){
   //     console.log("_______")
   //   }
   // });
-};
+})
 
 
-});
+}
 
   infoWindow = new google.maps.InfoWindow;
 
@@ -1069,7 +1088,7 @@ bathroomData.features.map(function(bathroom){
     // Browser doesn't support Geolocation
     handleLocationError(false, infoWindow, map.getCenter());
   }
-}
+
 
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
   infoWindow.setPosition(pos);
